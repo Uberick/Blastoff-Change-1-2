@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--File Creator: Erick Ruscitti
+email: erirusci@uat.edu
+for CSC102 class spring 2021-->
+<html>
+
+<head>
+    <!--this links my CSS page that sets the page background and color of the buttons-->
+    <link href="space.css" rel="stylesheet" type="text/css" />
+    <!--This is what gets displayed on the tab,
+    it is not shown on the actual page-->
+    <title>
+        UAT Space Page
+    </title>
+</head>
+
+<body>
+    <!--this inserts the picture at the top of the page-->
+    <img src="UATspaceLogo-1.jpg">
+    <!--this is for the header UAT Space program and sets the font color-->
+    <h1 style=color:rebeccapurple>
+        UAT Space Program
+        <br>
+        <br>
+        <br>
+        <!--this is the paragraph and sets the color of the font-->
+        <p style=color:rebeccapurple>
+            Test of the paragraph tags
+        </p>
+        <br>
+        <br>
+        <!--this is the header for Countdown timer as well as sets the font color-->
+        <h2 style=color:rebeccapurple>
+            Countdown Timer
+        </h2>
+        <!--This identifies the countdown timer-->
+        <p id="countdownTimer">The Countdown starts here...</p>
+        <br>
+        <br>
+        <!--this is the button with the function to start the timer-->
+        <button class="Buttons" onclick="betterCountdown();">Start</button>
+        <button class="Buttons">Stop</button>
+        <!--this is the script for the countdown-->
+        <script>
+            //this is the function that will have the variable for the halfway point on the countdown
+            function betterCountdown() {
+                //this line is what sets the start of the countdown
+                var currTime = 10;
+                //This sets the limit on how many times the function repeats
+                for (var i = 1; i <= 11; i++) {
+                    //this line states that if i equals 11 that the blastoff message will be displayed
+                    if (i == 11) {
+                        setTimeout(function () {
+                            document.getElementById("countdownTimer").innerHTML = "Blastoff!!";
+                        }, 1000 * i);
+                        //this line states that if i is greater than 6 that it will show the less than halfway message to display
+                    } else if (i > 6) {
+                        setTimeout(function () {
+                            document.getElementById("countdownTimer").innerHTML =
+                                "Warning Less than halfway to launch, time left = " + currTime;
+                            currTime = currTime - 1;
+                        }, 1000 * i);
+                        //this line states that if the if or else if statement is not true that it will display the time left message.
+                    } else {
+                        setTimeout(function () {
+                            document.getElementById("countdownTimer").innerHTML = "the time left is " + currTime;
+                            currTime = currTime - 1;
+                        }, 1000 * i);
+                    }
+                }
+            }
+        </script>
+</body>
+
+</html>
